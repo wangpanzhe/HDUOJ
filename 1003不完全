@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n,m;
+	cin>>n;
+	int start[20],last[20],temp[20];
+	for(int i=0;i<n;i++)
+	{
+		cin>>m;
+		int a[100000],sum=0;
+		for(int j=0;j<m;j++)
+		{
+			cin>>a[j];
+		}
+		for(int j=0;j<m;j++)
+		{
+				for(int k=j;k<m;k++)
+			{
+					for(int h=j;h<=k;h++)
+					{
+						sum+=a[h];
+							if(temp[i]<sum)
+							{
+				 				temp[i]=sum;
+								start[i]=j+1;
+				 				last[i]=k+1;
+							}
+					}
+					sum=0;
+			}
+		}
+	}
+	for(int i=0;i<n;i++)
+	{
+		cout<<"Case "<<i+1<<":"<<endl;
+		cout<<temp[i]<<" "<<start[i]<<" "<<last[i]<<endl;
+		cout<<endl;
+	}
+	return 0;
+}
